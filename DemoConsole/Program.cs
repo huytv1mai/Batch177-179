@@ -12,7 +12,7 @@ namespace DemoConsole
         {
             /*var member = new Member() { Id = 1, Name = "An" };
             Console.WriteLine("Id: "+ member.Id+ ", Name: " + member.Name);*/
-            new Bai17().Run();
+            new Bai18().Run();
         }
     }
 
