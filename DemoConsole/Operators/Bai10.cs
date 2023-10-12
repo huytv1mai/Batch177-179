@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoConsole
+namespace DemoConsole.Operators
 {
     internal class Bai10
     {
         public void Run()
         {
             int num = 13;
-            if(num<0)
+            if (num < 0)
             {
                 Console.WriteLine("The number is Negative");
             }
@@ -21,7 +21,7 @@ namespace DemoConsole
             }
             else
             {
-                Console.WriteLine("The number {0} is odd",num);
+                Console.WriteLine("The number {0} is odd", num);
             }
         }
     }

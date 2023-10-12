@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoConsole
+namespace DemoConsole.Operators
 {
     internal class Bai8
     {
@@ -14,7 +14,7 @@ namespace DemoConsole
             int ValueB = 20;
             int ValueC = 0;
             ValueC = ValueA++ + ValueB;//A=11
-            Console.WriteLine("ValueC= "+ ValueC);//31 30
+            Console.WriteLine("ValueC= " + ValueC);//31 30
             ValueC = ++ValueA - ValueB;//A=12
             Console.WriteLine("ValueC= " + ValueC);//-9 -8
             ValueC = ++ValueA + ++ValueB;//A=13 B=21

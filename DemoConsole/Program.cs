@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DemoConsole.ClassAndMethod;
+using DemoConsole.Operators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +12,8 @@ namespace DemoConsole
     {
         public static void Main(string[] args)
         {
-            /*var member = new Member() { Id = 1, Name = "An" };
-            Console.WriteLine("Id: "+ member.Id+ ", Name: " + member.Name);*/
-            new Bai18().Run();
+           new GiaiPhuongTrinh().Run();
         }
     }
 
-    public class Member
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
 }

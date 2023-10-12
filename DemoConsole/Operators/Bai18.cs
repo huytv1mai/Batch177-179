@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoConsole
+namespace DemoConsole.Operators
 {
     public class Bai18
     {
@@ -29,7 +29,7 @@ namespace DemoConsole
             Console.WriteLine("Students of Class I after changing the third  student in Class II:");
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(classOne[i] + "\t"+ classTwo[i]);
+                Console.WriteLine(classOne[i] + "\t" + classTwo[i]);
             }
 
         }

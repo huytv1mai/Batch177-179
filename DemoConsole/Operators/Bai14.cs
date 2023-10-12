@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoConsole
+namespace DemoConsole.Operators
 {
     public class Bai14
     {
         public void Run()
         {
-            for(int num = 1; num <= 11; num++)
+            for (int num = 1; num <= 11; num++)
             {
                 if (num % 2 == 0)
                 {

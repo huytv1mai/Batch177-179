@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoConsole
+namespace DemoConsole.Operators
 {
     internal class Bai5
     {
@@ -18,8 +18,8 @@ namespace DemoConsole
             int div = valueOne / valueTwo;
             int modu = valueOne % valueTwo;
             Console.WriteLine("Addition " + add);
-            Console.WriteLine("Subtraction " + sub); 
-            Console.WriteLine("Multiplication " + mult); 
+            Console.WriteLine("Subtraction " + sub);
+            Console.WriteLine("Multiplication " + mult);
             Console.WriteLine("Division " + div);
             Console.WriteLine("Remainder " + modu);
 

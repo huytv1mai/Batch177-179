@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoConsole
+namespace DemoConsole.Operators
 {
     public class Bai13
     {
@@ -16,7 +16,7 @@ namespace DemoConsole
             {
                 if (num % 2 == 0)
                 {
-                    Console.WriteLine("{0} is even number",num);
+                    Console.WriteLine("{0} is even number", num);
                 }
                 num++;
             } while (num <= 11);
