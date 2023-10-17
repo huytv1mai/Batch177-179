@@ -14,9 +14,7 @@ namespace DemoConsole
     {
         public static void Main(string[] args)
         {
-            University.UniversityName = "FPT University";
-            University.Department = "CF";
-            Console.WriteLine($"School {University.UniversityName} - {University.Department}");
+            new SalaryDetail().Run();
         }
     }
 
