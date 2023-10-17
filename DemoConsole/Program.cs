@@ -1,5 +1,7 @@
 ﻿using DemoConsole.ClassAndMethod;
 using DemoConsole.Operators;
+using DemoConsole.Session6;
+using DemoConsole.Session8;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,9 @@ namespace DemoConsole
     {
         public static void Main(string[] args)
         {
-           new GiaiPhuongTrinh().Run();
+            University.UniversityName = "FPT University";
+            University.Department = "CF";
+            Console.WriteLine($"School {University.UniversityName} - {University.Department}");
         }
     }
 

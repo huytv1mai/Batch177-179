@@ -16,10 +16,12 @@ namespace DemoConsole.ClassAndMethod
             c = GetDouble("Nhap gia tri c: ");
             if (a == 0)
             {
+                //ax+b=0
                 Console.WriteLine("Phuong trinh Bac mot:\n"+PhuongTrinh(b, c));
             }
             else
             {
+                //ax2+bx+c=0
                 Console.WriteLine("Phuong trinh Bac hai: "+ PhuongTrinh(a,b,c));
             }
         }
