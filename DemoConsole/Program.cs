@@ -1,21 +1,26 @@
-﻿using DemoConsole.ClassAndMethod;
-using DemoConsole.Operators;
-using DemoConsole.Session6;
-using DemoConsole.Session8;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DemoConsole.Session10;
 
+using ABC = Automotive;
 namespace DemoConsole
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            new SalaryDetail().Run();
+            new ExampleMulticaseDelegate().Run();
         }
     }
 
 }
+
+namespace Automotive
+{
+    public class SpareParts { 
+        string _spareName; 
+        public SpareParts() { _spareName = "Gear Box"; } 
+        public void Display() { 
+            Console.WriteLine("Spare Part name: " + _spareName); 
+        } 
+    }
+}
+

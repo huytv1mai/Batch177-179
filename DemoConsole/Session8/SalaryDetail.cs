@@ -20,10 +20,12 @@ namespace DemoConsole.Session8
     {
         public void Run()
         {
-            SalaryDetail salaryDetail = new SalaryDetail();
-            salaryDetail.Id = 1;
-            salaryDetail.Name = "An";
-            salaryDetail.Salary = 15.567f;
+            SalaryDetail salaryDetail = new SalaryDetail()
+            {
+                Id = 1,
+                Name = "An",
+                Salary = 15.567f
+            };
             Console.WriteLine(salaryDetail.ToString());
         }
     }
