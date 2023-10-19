@@ -1,5 +1,4 @@
-﻿using DemoConsole.Session10;
-
+﻿using DemoConsole.Session11;
 using ABC = Automotive;
 namespace DemoConsole
 {
@@ -7,7 +6,7 @@ namespace DemoConsole
     {
         public static void Main(string[] args)
         {
-            new LambdaExpression().Run();
+            new GenericClasses().Run();
         }
     }
 
