@@ -7,7 +7,7 @@ namespace DemoConsole
     {
         public static void Main(string[] args)
         {
-            new ExampleMulticaseDelegate().Run();
+            new LambdaExpression().Run();
         }
     }
 
