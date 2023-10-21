@@ -1,4 +1,5 @@
-﻿using DemoConsole.Session11;
+﻿using DemoConsole.Lab4;
+using DemoConsole.Session11;
 using ABC = Automotive;
 namespace DemoConsole
 {
@@ -6,7 +7,7 @@ namespace DemoConsole
     {
         public static void Main(string[] args)
         {
-            new GenericClasses().Run();
+            new ExampleBalance().Run();
         }
     }
 
