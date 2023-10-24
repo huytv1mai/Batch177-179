@@ -5,7 +5,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>DemoConsole.Program</StartupObject>
+    <StartupObject>DemoConsole.PE.DoctorDemo</StartupObject>
   </PropertyGroup>
 
 </Project>
