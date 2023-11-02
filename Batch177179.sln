@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirstDemo", "CodeFirstD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstDemoFramework", "CodeFirstDemoFramework\CodeFirstDemoFramework.csproj", "{7C3D489E-D9D5-49B7-9154-A7C5540A263E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoDatabaseFirst", "DemoDatabaseFirst\DemoDatabaseFirst.csproj", "{2213C65B-F636-4806-80CF-1E868A200430}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoDatabaseFirst", "DemoDatabaseFirst\DemoDatabaseFirst.csproj", "{2213C65B-F636-4806-80CF-1E868A200430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCodeFirst", "DemoCodeFirst\DemoCodeFirst.csproj", "{EE4DAF6E-D344-49F5-94A7-AF23BE01DD6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2213C65B-F636-4806-80CF-1E868A200430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2213C65B-F636-4806-80CF-1E868A200430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2213C65B-F636-4806-80CF-1E868A200430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE4DAF6E-D344-49F5-94A7-AF23BE01DD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE4DAF6E-D344-49F5-94A7-AF23BE01DD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE4DAF6E-D344-49F5-94A7-AF23BE01DD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE4DAF6E-D344-49F5-94A7-AF23BE01DD6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
