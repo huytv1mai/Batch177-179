@@ -1,5 +1,7 @@
-var builder = WebApplication.CreateBuilder(args);
+using DatabaseFirstDemo.Models;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped(typeof(ProductManagermentBatch177Context));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
