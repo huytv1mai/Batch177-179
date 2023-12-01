@@ -1,6 +1,5 @@
 ﻿namespace WebDemo14112023.Models
 {
-<<<<<<< HEAD
     public class ProductDao
     {
         private static ProductDao instance = null;
@@ -9,7 +8,7 @@
         {
             get
             {
-                lock(instancelock)
+                lock (instancelock)
                 {
                     if (instance == null)
                     {
@@ -31,10 +30,4 @@
             return products;
         }
     }
-
-=======
-    public class ProductDAO
-    {
-    }
->>>>>>> 3db8a99d2fbc79370dbb0ccdcb69e61121276d48
 }
