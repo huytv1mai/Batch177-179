@@ -59,7 +59,7 @@ namespace WebDemo14112023.Areas.Admin.Controllers
                   Users = (ICollection<User>)users,
                   UserDetails = (ICollection<UserDetail>)usersdetail,
               });*/
-            int pageSize = 3;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             roleUser.Users = users.ToPagedList(pageNumber, pageSize);
             return View(roleUser);
