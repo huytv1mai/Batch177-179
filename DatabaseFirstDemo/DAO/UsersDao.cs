@@ -57,7 +57,7 @@ namespace DatabaseFirstDemo.DAO
             return user;
         }
 
-        public List<User> GetUserByKeyword(string keyword, string sortBy)
+        public List<User> GetUserByKeyword(string keyword, string sortBy, int? roleId)
         {
             List<User> users = new List<User>();
             try
