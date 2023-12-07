@@ -1,6 +1,5 @@
 ﻿using DatabaseFirstDemo.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,30 +40,34 @@ namespace DatabaseFirstDemo.DAO
             }
             return news;
         }
+
+
         public List<News> GetNewsByKeyword(string keyword, string sortBy, int? categoryId)
         {
             List<News> news = new List<News>();
             try
             {
-                using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
+                ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
                 var newsQuery = stock.News;
                 if (!String.IsNullOrEmpty(keyword))
                 {
-                    newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)stock.News.Where(u=>u.Title.ToLower().Contains(keyword));
+                    newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)stock.News.Where(u => u.Title.ToLower().Contains(keyword));
                 }
 
                 switch (sortBy)
                 {
-                    case "tilte":
+                    case "title":
                         newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)newsQuery.OrderBy(o => o.Title);
                         break;
                     case "titledesc":
                         newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)newsQuery.OrderByDescending(o => o.Title);
                         break;
+                    default:
+                        break;
                 }
-               if (categoryId != null)
+                if (categoryId != null)
                 {
-                    news = newsQuery.Where(u=>u.CategoryId == categoryId).ToList();
+                    news = newsQuery.Where(u => u.CategoryId == categoryId).ToList();
                 }
                 else
                 {
@@ -93,6 +96,7 @@ namespace DatabaseFirstDemo.DAO
             return news;
         }
 
+
         public void Insert(News news)
         {
             using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
@@ -100,6 +104,7 @@ namespace DatabaseFirstDemo.DAO
             {
                 try
                 {
+
                     stock.Add(news);
                     stock.SaveChanges();
                     transaction.Commit();
@@ -112,7 +117,6 @@ namespace DatabaseFirstDemo.DAO
             }
         }
 
-      
         public void Update(News news)
         {
             using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
@@ -120,7 +124,8 @@ namespace DatabaseFirstDemo.DAO
             {
                 try
                 {
-                    stock.Entry<News>(news).State = Microsoft.EntityFrameworkCore.EntityState.Modified;                    stock.SaveChanges();
+                    stock.Entry<News>(news).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    stock.SaveChanges();
                     transaction.Commit();
                 }
                 catch (Exception ex)

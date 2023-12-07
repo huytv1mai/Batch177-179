@@ -76,7 +76,9 @@ namespace DatabaseFirstDemo.DAO
                             detail => detail.UserId,
                             (user, detail) => new { User = user, Detail = detail })
                         .Where(u => u.Detail.FullName.ToLower().Contains(keyword)
-                                    || u.Detail.Address.ToLower().Contains(keyword));
+                                    || u.Detail.Address.ToLower().Contains(keyword)
+                                    || u.User.UserName.ToLower().Contains(keyword)
+                                    );
                 }
 
                 switch (sortBy)
@@ -102,7 +104,14 @@ namespace DatabaseFirstDemo.DAO
                     default:
                         break;
                 }
-                users = usersQuery.Select(u => u.User).ToList();
+                if (roleId != null)
+                {
+                    users = usersQuery.Where(u => u.User.RoleId == roleId).Select(u => u.User).ToList();
+                }
+                else
+                {
+                    users = usersQuery.Select(u => u.User).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -305,6 +314,14 @@ namespace DatabaseFirstDemo.DAO
             user.Status = !user.Status;
             stock.SaveChanges();
             return (bool)user.Status;
+        }
+
+        public User CheckLogin(string userName, string password)
+        {
+            User user;
+            using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
+            user = stock.Users.SingleOrDefault(u => u.UserName.Equals(userName) && u.Password.Equals(password));
+            return user;
         }
     }
 }
