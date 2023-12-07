@@ -41,115 +41,66 @@ namespace DatabaseFirstDemo.DAO
             }
             return news;
         }
-        public List<News> GetUserByKeyword(string keyword, string sortBy)
+        public List<News> GetNewsByKeyword(string keyword, string sortBy, int? categoryId)
         {
             List<News> news = new List<News>();
             try
             {
                 using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-                var usersQuery = stock.News
-            .Join(stock.UserDetails,
-                news => news.UserId,
-                detail => detail.UserId,
-                (user, detail) => new { User = user, Detail = detail });
+                var newsQuery = stock.News;
                 if (!String.IsNullOrEmpty(keyword))
                 {
-                    usersQuery = stock.Users
-                        .Join(stock.UserDetails,
-                            user => user.UserId,
-                            detail => detail.UserId,
-                            (user, detail) => new { User = user, Detail = detail })
-                        .Where(u => u.Detail.FullName.ToLower().Contains(keyword)
-                                    || u.Detail.Address.ToLower().Contains(keyword));
+                    newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)stock.News.Where(u=>u.Title.ToLower().Contains(keyword));
                 }
 
                 switch (sortBy)
                 {
-                    case "name":
-                        usersQuery = usersQuery.OrderBy(o => o.User.UserName);
+                    case "tilte":
+                        newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)newsQuery.OrderBy(o => o.Title);
                         break;
-                    case "namedesc":
-                        usersQuery = usersQuery.OrderByDescending(o => o.User.UserName);
-                        break;
-                    case "fullname":
-                        usersQuery = usersQuery.OrderBy(o => o.Detail.FullName);
-                        break;
-                    case "fullnamedesc":
-                        usersQuery = usersQuery.OrderByDescending(o => o.Detail.FullName);
-                        break;
-                    case "address":
-                        usersQuery = usersQuery.OrderBy(o => o.Detail.Address);
-                        break;
-                    case "addressdesc":
-                        usersQuery = usersQuery.OrderByDescending(o => o.Detail.Address);
-                        break;
-                    default:
+                    case "titledesc":
+                        newsQuery = (Microsoft.EntityFrameworkCore.DbSet<News>)newsQuery.OrderByDescending(o => o.Title);
                         break;
                 }
-                users = usersQuery.Select(u => u.User).ToList();
+               if (categoryId != null)
+                {
+                    news = newsQuery.Where(u=>u.CategoryId == categoryId).ToList();
+                }
+                else
+                {
+                    news = newsQuery.ToList();
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return users;
+            return news;
         }
 
-        public User GetById(int? id)
+        public News GetById(int? id)
         {
-            User user;
+            News news;
             try
             {
                 using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-                user = stock.Users.SingleOrDefault(r => r.UserId == id);
+                news = stock.News.SingleOrDefault(r => r.Id == id);
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return user;
+            return news;
         }
 
-        public UserDetail GetByUserDetailId(int? id)
-        {
-            UserDetail userDetail;
-            try
-            {
-                using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-                userDetail = stock.UserDetails.SingleOrDefault(r => r.UserId == id);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return userDetail;
-        }
-
-        public List<UserDetail> GetUserDetailAll()
-        {
-            List<UserDetail> listUserDetail;
-            try
-            {
-                using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-                listUserDetail = stock.UserDetails.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return listUserDetail;
-        }
-
-        public void Insert(User user, UserDetail userDetail)
+        public void Insert(News news)
         {
             using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
             using (var transaction = stock.Database.BeginTransaction())
             {
                 try
                 {
-
-                    stock.Add(user);
-                    stock.Add(userDetail);
+                    stock.Add(news);
                     stock.SaveChanges();
                     transaction.Commit();
                 }
@@ -161,16 +112,15 @@ namespace DatabaseFirstDemo.DAO
             }
         }
 
-        public void InsertUser(User user)
+      
+        public void Update(News news)
         {
             using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
             using (var transaction = stock.Database.BeginTransaction())
             {
                 try
                 {
-
-                    stock.Add(user);
-                    stock.SaveChanges();
+                    stock.Entry<News>(news).State = Microsoft.EntityFrameworkCore.EntityState.Modified;                    stock.SaveChanges();
                     transaction.Commit();
                 }
                 catch (Exception ex)
@@ -181,98 +131,18 @@ namespace DatabaseFirstDemo.DAO
             }
         }
 
-        public void InsertUserDetail(UserDetail user)
+        public IEnumerable<NewCategory> GetAllNewCategory()
         {
             using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-            using (var transaction = stock.Database.BeginTransaction())
-            {
-                try
-                {
-
-                    stock.Add(user);
-                    stock.SaveChanges();
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw new Exception(ex.Message);
-                }
-            }
+            return stock.NewsCategories.ToList();
         }
 
-        public void Update(User user, UserDetail userDetail)
-        {
-            using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-            using (var transaction = stock.Database.BeginTransaction())
-            {
-                try
-                {
-                    stock.Entry<User>(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    stock.Entry<UserDetail>(userDetail).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    stock.SaveChanges();
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw new Exception(ex.Message);
-                }
-            }
-        }
-
-        public void UpdateUser(User user)
-        {
-            using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-            using (var transaction = stock.Database.BeginTransaction())
-            {
-                try
-                {
-                    stock.Entry<User>(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    stock.SaveChanges();
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw new Exception(ex.Message);
-                }
-            }
-        }
-
-        public void UpdateUserDetail(UserDetail userDetail)
-        {
-            using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-            using (var transaction = stock.Database.BeginTransaction())
-            {
-                try
-                {
-                    stock.Entry<UserDetail>(userDetail).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    stock.SaveChanges();
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw new Exception(ex.Message);
-                }
-            }
-        }
-
-        public IEnumerable<Role> GetAllRoles()
-        {
-            using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-            return stock.Roles.ToList();
-        }
-
-        public void Delete(User user)
+        public void Delete(News news)
         {
             try
             {
                 using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-                var us = stock.Users.SingleOrDefault(c => c.UserId == user.UserId);
-                var usdt = stock.UserDetails.SingleOrDefault(c => c.UserId == user.UserId);
-                stock.Remove(usdt);
+                var us = stock.News.SingleOrDefault(c => c.Id == news.UserId);
                 stock.Remove(us);
                 stock.SaveChanges();
             }
@@ -285,10 +155,10 @@ namespace DatabaseFirstDemo.DAO
         public bool ChangeStatus(int id)
         {
             using ProductManagermentBatch177Context stock = new ProductManagermentBatch177Context();
-            var user = stock.Users.Find(id);
-            user.Status = !user.Status;
+            var news = stock.News.Find(id);
+            news.Status = !news.Status;
             stock.SaveChanges();
-            return (bool)user.Status;
+            return (bool)news.Status;
         }
     }
 }

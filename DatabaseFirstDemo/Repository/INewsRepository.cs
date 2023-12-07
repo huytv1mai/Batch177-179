@@ -14,9 +14,9 @@ namespace DatabaseFirstDemo.Repository
         void Insert(News news);
         void Update(News news);
         News GetById(int id);
-        void Delete(News news);
-        IEnumerable<Role> GetAllRoles();
+        void Delete(News news); 
+        IEnumerable<NewCategory> GetAllNewCategory();
         bool ChangeStatus(int id);
-        List<News> GetUserByKeyword(string keyword, string sortBy);
+        List<News> GetNewsByKeyword(string keyword, string sortBy, int? categoryId);
     }
 }
