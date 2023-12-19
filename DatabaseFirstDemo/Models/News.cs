@@ -12,16 +12,18 @@ public partial class News
 
     public int CategoryId { get; set; }
 
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
-    public string SubjectContent { get; set; }
+    public string? SubjectContent { get; set; }
 
+    [DisplayName("Ngày đăng")]
     public DateTime DateUpdate { get; set; }
 
-    public bool? Status { get; set; }
+    public bool Status { get; set; }
 
+    [DisplayName("Ảnh đại diện")]
     public string Avatar { get; set; }
 
     public int UserId { get; set; }

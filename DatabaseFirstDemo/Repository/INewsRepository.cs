@@ -13,7 +13,7 @@ namespace DatabaseFirstDemo.Repository
         void Insert(News news);
         void Update(News news);
         News GetById(int id);
-        void Delete(News news); 
+        void Delete(News news);
         IEnumerable<NewCategory> GetAllNewCategory();
         bool ChangeStatus(int id);
         IEnumerable<News> GetNewsByKeyword(string keyword, string sortBy, int? categoryId);

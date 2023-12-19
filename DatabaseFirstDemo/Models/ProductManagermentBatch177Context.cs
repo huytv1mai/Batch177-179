@@ -35,7 +35,7 @@ public partial class ProductManagermentBatch177Context : DbContext
     public object NewCategories { get; internal set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=Huytv;Database=ProductManagermentBatch177;User Id=testuser;Password=abc123!@#;TrustServerCertificate=true;Trusted_Connection=SSPI;Encrypt=false;");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-LR3TTFE\\HUYTV;Database=ProductManagermentBatch177;User Id=testuser;Password=abc123!@#;TrustServerCertificate=true;Trusted_Connection=SSPI;Encrypt=false;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

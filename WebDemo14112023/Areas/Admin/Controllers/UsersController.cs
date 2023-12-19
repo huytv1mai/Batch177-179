@@ -1,6 +1,7 @@
 ﻿using DatabaseFirstDemo.DAO;
 using DatabaseFirstDemo.Models;
 using DatabaseFirstDemo.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,8 +9,6 @@ using System.Data;
 using System.Drawing.Printing;
 using WebDemo14112023.Areas.Admin.Models;
 using X.PagedList;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 
 namespace WebDemo14112023.Areas.Admin.Controllers
 {

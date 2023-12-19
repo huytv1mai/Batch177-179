@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using DatabaseFirstDemo.Models;
 using DatabaseFirstDemo.Repository;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 
 namespace WebDemo14112023.Areas.Admin.Controllers

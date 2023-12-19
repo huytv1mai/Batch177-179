@@ -21,7 +21,7 @@ namespace WebDemo14112023.Areas.Admin.Controllers
         {
 
             /*ProductMangementBatch177Context _context = new ProductMangementBatch177Context();
-            var list = _context.NewsCategories.ToList();*/
+            var list = _context.NewCategories.ToList();*/
             var result = newCategoryRepository.GetAll();
             return View(result);
         }
