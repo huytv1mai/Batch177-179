@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutomobileLibrary1\AutomobileLibrary.csproj" />
+    <ProjectReference Include="..\AutomobileLibrary\AutomobileLibrary.csproj" />
     <ProjectReference Include="..\AutomobileLibrary\AutomobileLibrary1.csproj" />
   </ItemGroup>
 
