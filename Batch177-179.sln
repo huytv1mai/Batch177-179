@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileLibrary", "Automo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseFirstDemo", "DatabaseFirstDemo\DatabaseFirstDemo.csproj", "{440D5BA0-91FC-4F77-BF60-FCBBD333426A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAPI23122023", "DemoAPI23122023\DemoAPI23122023.csproj", "{301519D1-851C-4ED1-951E-5EBEEA859C55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{440D5BA0-91FC-4F77-BF60-FCBBD333426A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{440D5BA0-91FC-4F77-BF60-FCBBD333426A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{440D5BA0-91FC-4F77-BF60-FCBBD333426A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{301519D1-851C-4ED1-951E-5EBEEA859C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301519D1-851C-4ED1-951E-5EBEEA859C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301519D1-851C-4ED1-951E-5EBEEA859C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301519D1-851C-4ED1-951E-5EBEEA859C55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
